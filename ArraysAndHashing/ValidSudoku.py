@@ -8,7 +8,7 @@ Return true if the Sudoku board is valid, otherwise return false
 
 Note: A board does not need to be full or be solvable to be valid.
 '''
-def isValidSudoku(self, board: List[List[str]]) -> bool:
+def isValidSudoku(board) -> bool:
     # no dupe in row or col
     cols = [set() for i in range(9)]
     for row in range(9):

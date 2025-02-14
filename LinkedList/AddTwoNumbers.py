@@ -8,7 +8,12 @@ Each of the nodes contains a single digit. You may assume the two numbers do not
 Return the sum of the two numbers as a linked list.
 '''
 
-def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def addTwoNumbers(l1, l2):
     if not l1 or not l2:
         return []
 

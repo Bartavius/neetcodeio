@@ -8,7 +8,12 @@ Internally, index determines the index of the beginning of the cycle, if it exis
 Note: index is not given to you as a parameter.
 '''
 
-def hasCycle(self, head: Optional[ListNode]) -> bool:
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def hasCycle(head) -> bool:
     slow_pointer = head
     fast_pointer = head
 

@@ -4,7 +4,7 @@ You are given an array non-negative integers height which represent an elevation
 Return the maximum area of water that can be trapped between the bars.
 '''
 
-def trap(self, height: List[int]) -> int:
+def trap(height) -> int:
     total_water = 0
     l, r = 0, len(height) - 1
     maxl, maxr = height[l], height[r]

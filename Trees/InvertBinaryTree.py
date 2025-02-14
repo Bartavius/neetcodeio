@@ -1,7 +1,7 @@
 '''
 You are given the root of a binary tree root. Invert the binary tree and return its root.
 '''
-def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+def invertTree(root):
     if root:
         stack = [root]
         while stack:

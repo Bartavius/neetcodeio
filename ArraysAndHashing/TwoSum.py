@@ -6,7 +6,7 @@ You may assume that every input has exactly one pair of indices i and j that sat
 Return the answer with the smaller index first.
 '''
 
-def twoSum(self, nums: List[int], target: int) -> List[int]:
+def twoSum(nums, target):
 
     # define l r
     sorted_nums = []
