@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Solution {
+class GroupAnagramsSolution {
     @SuppressWarnings("Convert2Diamond")
     public List<List<String>> groupAnagrams(String[] strs) {
         
