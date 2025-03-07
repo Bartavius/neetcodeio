@@ -1,4 +1,4 @@
-def topKFrequent(self, nums, k: int):
+def topKFrequent(nums, k: int):
 
     # 1. count frequency 
     # 2. put in hashset,
