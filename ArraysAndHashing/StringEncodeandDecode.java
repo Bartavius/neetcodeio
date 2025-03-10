@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class StringEncodeandDecode {
 
     private final String delimiter = "#";
 
