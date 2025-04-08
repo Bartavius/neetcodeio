@@ -6,7 +6,7 @@
 #         self.right = right
 
 class Solution:
-    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+    def lowestCommonAncestor(self, root, p, q):
         
 
         # BST
