@@ -1,0 +1,22 @@
+[pytest]
+minversion = 6.0
+addopts = 
+    -ra
+    --strict-markers
+    --cov=.
+    --cov-report=term-missing:skip-covered
+    --cov-report=html
+    --timeout=10
+    --cov-omit=test/*
+testpaths = test
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+
+markers =
+    slow: marks tests as slow (deselect with '-m "not slow"')
+    array: array-related problems
+    string: string-related problems
+    tree: tree-related problems
+    graph: graph-related problems
+    dp: dynamic programming problems
