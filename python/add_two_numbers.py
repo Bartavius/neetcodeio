@@ -13,30 +13,31 @@ class ListNode:
         self.val = val
         self.next = next
 
-def addTwoNumbers(l1, l2):
-    if not l1 or not l2:
-        return []
+class Solution:
+    def add_two_numbers(self, l1, l2):
+        if not l1 or not l2:
+            return []
 
-    def getNum(l):
-        i = 0
-        res = 0
-        while l:
-            res += l.val * (10 ** i)
-            i += 1
-            l = l.next
-        return res
-    
-    num1 = getNum(l1)
-    num2 = getNum(l2)
-    res = num1 + num2
+        def get_num(l):
+            i = 0
+            res = 0
+            while l:
+                res += l.val * (10 ** i)
+                i += 1
+                l = l.next
+            return res
+        
+        num1 = get_num(l1)
+        num2 = get_num(l2)
+        res = num1 + num2
 
-    new = head = ListNode()
-    while res != 0:
-        newNode = ListNode()
-        new.val = res % 10
-        res = res // 10
-        if res != 0:
-            new.next = newNode
-            new = new.next
+        new = head = ListNode()
+        while res != 0:
+            newNode = ListNode()
+            new.val = res % 10
+            res = res // 10
+            if res != 0:
+                new.next = newNode
+                new = new.next
 
-    return head
+        return head
