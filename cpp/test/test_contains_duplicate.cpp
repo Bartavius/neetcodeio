@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../solutions/contains_duplicate.h"
+#include <unordered_set>
 
 class HasDuplicateTest : public ::testing::Test {
 protected:

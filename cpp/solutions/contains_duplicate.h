@@ -2,7 +2,6 @@
 #define CONTAINS_DUPLICATE_H
 
 #include <vector>
-#include <unordered_set>
 
 class ContainsDuplicate {
 public:

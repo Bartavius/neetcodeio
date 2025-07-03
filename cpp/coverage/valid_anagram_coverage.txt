@@ -1,0 +1,19 @@
+    1|       |#include "valid_anagram.h"
+    2|       |#include <unordered_map>
+    3|       |
+    4|     13|bool ValidAnagram::isAnagram(std::string s, std::string t) {
+    5|       |    // should fail due to length difference
+    6|     13|    if (s.length() != t.length()) {
+    7|      3|        return false;
+    8|      3|    }
+    9|     10|    std::unordered_map<char, int> charS;
+   10|     10|    std::unordered_map<char, int> charT;
+   11|       |    
+   12|     49|    for (size_t i = 0; i < s.size(); i++) {
+   13|     39|        charS[s[i]]++;
+   14|     39|        charT[t[i]]++;
+   15|     39|    }
+   16|       |
+   17|     10|    return charS == charT; // since cpp std compares object equality
+   18|     13|};
+
