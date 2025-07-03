@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1751537865161" clover="3.2.0">
+  <project timestamp="1751537865161" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1" elements="22" coveredelements="22" complexity="0" loc="13" ncloc="13" packages="1" files="1" classes="1"/>
+    <file name="ValidAnagram.js" path="/Users/bartavius/Desktop/personal/neetcode/neetcodeio/javascript/ValidAnagram.js">
+      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+      <line num="11" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="10" type="stmt"/>
+      <line num="14" count="10" type="stmt"/>
+      <line num="19" count="10" type="stmt"/>
+      <line num="20" count="44" type="stmt"/>
+      <line num="21" count="44" type="stmt"/>
+      <line num="23" count="44" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="44" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="10" type="stmt"/>
+      <line num="29" count="34" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="33" count="8" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

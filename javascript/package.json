@@ -4,7 +4,9 @@
   "description": "",
   "main": "pratice.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:coverage:watch": "jest --coverage --watch"
   },
   "repository": {
     "type": "git",
