@@ -124,14 +124,14 @@ class TestAddTwoNumbers:
         l1 = None
         l2 = self.create_linked_list([1, 2, 3])
         result = solution.add_two_numbers(l1, l2)
-        assert result == []  # Your code returns empty list
+        assert result == []  # code returns empty list
         
         # Test with second list None  
         l1 = self.create_linked_list([1, 2, 3])
         l2 = None
         result = solution.add_two_numbers(l1, l2)
-        assert result == []  # Your code returns empty list
+        assert result == []  # code returns empty list
         
         # Test with both None
         result = solution.add_two_numbers(None, None)
-        assert result == []  # Your code returns empty list
+        assert result == []  # code returns empty list
