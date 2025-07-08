@@ -2,7 +2,6 @@
 #include <unordered_map>
 
 bool ValidAnagram::isAnagram(std::string s, std::string t) {
-    // should fail due to length difference
     if (s.length() != t.length()) {
         return false;
     }
