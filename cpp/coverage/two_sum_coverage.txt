@@ -1,0 +1,28 @@
+    1|       |#include "two_sum.h"
+    2|       |#include <algorithm>
+    3|       |
+    4|      9|std::vector<int> TwoSum::twoSum(std::vector<int>& nums, int target) {
+    5|       |    
+    6|      9|    std::vector<std::pair<int, int>> sortedList;
+    7|     39|    for (size_t i = 0; i < nums.size(); i++) {
+    8|     30|        sortedList.push_back({nums[i], i});
+    9|     30|    }
+   10|      9|    sort(sortedList.begin(), sortedList.end());
+   11|       |
+   12|      9|    size_t l = 0, r = sortedList.size() - 1;
+   13|      9|    int sum;
+   14|       |
+   15|     18|    while (l < r) {
+   16|     14|        sum = sortedList[l].first + sortedList[r].first;
+   17|     14|        if (sum == target) {
+   18|      5|            return {std::min(sortedList[l].second, sortedList[r].second),
+   19|      5|                    std::max(sortedList[l].second, sortedList[r].second)};
+   20|      9|        } else if (sum > target) {
+   21|      1|            r--;
+   22|      8|        } else {
+   23|      8|            l++;
+   24|      8|        }
+   25|     14|    }
+   26|      4|    return {};
+   27|      9|};
+

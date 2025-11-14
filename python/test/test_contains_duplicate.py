@@ -2,7 +2,10 @@ import pytest
 from contains_duplicate import ContainsDuplicate
 
 class TestContainsDuplicate:
-    """Test cases for Contains Duplicate problem."""
+    """
+    Test cases for Contains Duplicate problem. This was a generated
+    file using AI so that I can use it as a template for my future tests
+    """
     
     @pytest.fixture
     def solution(self):
