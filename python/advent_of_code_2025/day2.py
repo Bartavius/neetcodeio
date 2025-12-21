@@ -51,25 +51,50 @@ def check_one_number_part1(num) -> int:
     
 def check_one_number_part2(num) -> int:
     midpoint = len(num) // 2
-    pattern = num[:midpoint]
+    # pattern = num[:midpoint]
 
-    # naive solution
-    while len(pattern) > 0:
-        repetition = num.count(pattern)
+    # # naive solution
+    # while len(pattern) > 0:
+    #     repetition = num.count(pattern)
 
-        # if pattern repeats for the whole num
-        if repetition * len(pattern) == len(num):
+    #     # if pattern repeats for the whole num
+    #     if repetition * len(pattern) == len(num):
+    #         print("found pattern", pattern, "in number", num)
+    #         return int(num)
+        
+    #     else:
+    #         midpoint -= 1
+    #         pattern = num[:midpoint]
+    
+    # return 0
+
+
+    # optimal sliding window
+    
+    # if we reached midpoint + 1 then there shouldn't be any more repetitions <- optimal due to early exits
+    ptr = 1
+    pattern = num[0]
+
+    while ptr < midpoint + 1:
+        match = True
+
+        for i in range(0, len(num), ptr):
+            if pattern == num[i: i + ptr]:
+                continue
+            else:
+                match = False
+                break
+        
+        #if the pattern has not been found
+        if not match:
+            ptr += 1
+            pattern = num[:ptr]
+
+        else:
             print("found pattern", pattern, "in number", num)
             return int(num)
-        
-        else:
-            midpoint -= 1
-            pattern = num[:midpoint]
     
     return 0
-
-
-  
 
 def check_one_number(num, part) -> int:
     if part == 1:
