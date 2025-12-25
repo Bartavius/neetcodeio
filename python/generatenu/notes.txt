@@ -1,0 +1,9 @@
+back propagate djikstra.
+
+using the target sensors as starting nodes,
+run djikstra on those nodes
+terminating condition will be when it finds another target or a
+node with no dependencies.
+
+upon popping all the target sensors, stitch all the paths together
+

@@ -1,0 +1,75 @@
+{
+  "sensors": [
+    {
+      "id": 1,
+      "dependencies": []
+    },
+    {
+      "id": 2,
+      "dependencies": [1]
+    },
+    {
+      "id": 3,
+      "dependencies": [1, 4]
+    },
+    {
+      "id": 4,
+      "dependencies": [2, 6]
+    },
+    {
+      "id": 5,
+      "dependencies": [3, 4]
+    },
+    {
+      "id": 6,
+      "dependencies": [2]
+    }
+  ],
+  "risks": [
+    {
+      "fromSensor": 1,
+      "toSensor": 3,
+      "risk": 20
+    },
+    {
+      "fromSensor": 1,
+      "toSensor": 2,
+      "risk": 12
+    },
+    {
+      "fromSensor": 2,
+      "toSensor": 4,
+      "risk": 15
+    },
+    {
+      "fromSensor": 2,
+      "toSensor": 6,
+      "risk": 0
+    },
+    {
+      "fromSensor": 3,
+      "toSensor": 5,
+      "risk": 80
+    },
+    {
+      "fromSensor": 4,
+      "toSensor": 3,
+      "risk": 15
+    },
+    {
+      "fromSensor": 4,
+      "toSensor": 5,
+      "risk": 7
+    },
+    {
+      "fromSensor": 6,
+      "toSensor": 4,
+      "risk": 1
+    }
+  ],
+  "targetSensors": [
+    3,
+    4,
+    5
+  ]
+}
