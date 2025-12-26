@@ -1,5 +1,4 @@
 
-from collections import defaultdict
 import json
 from typing import List
 import heapq
@@ -47,6 +46,13 @@ def get_dependencies(id) -> List[int]:
   '''
   return adj_lookup.get(id, [])
 
+def get_dependencies_reverse(id) -> List[int]:
+    res = []
+    for risk in risks:
+        if risk["fromSensor"] == id:
+          res.append(risk["toSensor"])
+    return res
+  
 def tweaked_djikstra():
   
   total_risk = 0
@@ -140,6 +146,86 @@ def djikstra(start):
   path.append(start)
 
   return dist[end], path
+
+def djikstra_from_start(start, end):
+    dist = {sensor['id']: float("inf") for sensor in sensors}
+    dist[start] = 0
+
+    prev = {} # for path reconstruction
+
+    pq = [(0, start)]
+
+    while pq:
+      curr_dist, u = heapq.heappop(pq)
+
+      # Skip outdated queue entries
+      if curr_dist > dist[u]:
+          continue
+      
+      # Terminating condition: if we reached a sensor with no
+      # dependencies/another target
+
+      for v in get_dependencies_reverse(u):
+          weight = check_risk(u, v)
+          
+          # should never get -1 but leaving this here for debug in case
+          if weight < 0:
+            print('-1 WEIGHT RECEIVED FROM', u, "->", v)
+
+          new_dist = curr_dist + weight
+          if new_dist < dist[v]:
+              dist[v] = new_dist
+              prev[v] = u
+
+              heapq.heappush(pq, (new_dist, v))
+
+    # If end was never reached
+    found_a_target = len(set(prev.keys()).intersection(target))
+    found_a_node_with_no_dependencies = [node for node in prev if adj_lookup[node] == []]
+    if not (found_a_target or found_a_node_with_no_dependencies):
+      return [], float("inf")
+
+    # Reassign weight
+    path = []
+    cur = end
+    while cur != start:
+        path.append(cur)
+
+        # update edge to 0 risk
+        risk_lookup[(prev[cur], cur)] = 0
+
+        cur = prev[cur]
+
+    path.append(start)
+    path.reverse()
+
+    print("from start path:", path)
+    return path, dist[end]
+
+def tweaked_djikstra_from_start():
+   paths = []
+   total_risk = 0
+   start = 10
+
+   # 64 best was combination of 0 and 3 best starts:
+   # [[3, 10, 15, 19, 25], [3, 10, 15, 23, 26], [3, 10, 15, 19, 27], [3, 10, 15, 19, 28], [3, 10, 15, 23, 29], [3, 10, 15, 23, 30]]
+   
+   # 65 risk, start 3 and target this order: [30, 25, 26, 27, 28, 29]
+   # 66 risk, start 0 and target this order: [25, 26, 27, 28, 29, 30]
+   # 67 risk, start 3 and target this order: [29, 30, 25, 26, 27, 28]
+   new_target = [30, 25, 26, 27, 28, 29]
+
+   while new_target:
+      sensor = new_target[0]
+      path, risk = djikstra_from_start(start, sensor)
+      new_target.pop(0)
+      print("done iteration:", risk)
+      paths.append(path)
+
+      total_risk += risk
+
+   return paths, total_risk
+    
 
 def brute_force():
     paths = {}
@@ -263,7 +349,10 @@ def shortest_path_to_MST(target):
 
 
 # # first idea
-print(tweaked_djikstra())
+# print(tweaked_djikstra())
+
+print(tweaked_djikstra_from_start())
+
 # ''' 
 # best 66 risk
 # ([[0, 7, 15, 19, 25], [0, 7, 15, 23, 26], [0, 7, 15, 19, 27], [0, 7, 15, 19, 28], [0, 7, 15, 23, 29], [0, 7, 15, 23, 30]], 66)'''
