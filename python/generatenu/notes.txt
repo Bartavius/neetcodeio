@@ -1,3 +1,5 @@
+
+# idea 1
 back propagate djikstra.
 
 using the target sensors as starting nodes,
@@ -6,4 +8,8 @@ terminating condition will be when it finds another target or a
 node with no dependencies.
 
 upon popping all the target sensors, stitch all the paths together
+
+
+# idea 2:
+just an MST traversal
 
